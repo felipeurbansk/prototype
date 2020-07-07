@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/imoveis', 'PropertyCotroller@index');
+Route::get('/imoveis/novo', 'PropertyCotroller@create');
