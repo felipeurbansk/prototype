@@ -25,7 +25,7 @@ class PropertyCotroller extends Controller
     public function edit(Request $request, $id){
         $imovel = Imovel::find($id);
 
-        return view('property.create', compact($imovel));
+        return view('property.create', compact('imovel'));
     }
 
     public function store(Request $request) {
@@ -47,10 +47,12 @@ class PropertyCotroller extends Controller
         $imovel->price = $request->input('price');
 
         $imovel->save();
+        return redirect()->action('PropertyCotroller@index');
 
     }
 
     public function destroy($id) {
         Imovel::find($id)->delete();
+        return redirect()->action('PropertyCotroller@index');
     }
 }

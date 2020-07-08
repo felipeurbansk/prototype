@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <table>
+    <table class="table table-striped table-hover my-5">
         <thead>
             <tr>
                 <th>Nome</th>
