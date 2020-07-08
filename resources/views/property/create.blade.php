@@ -1,5 +1,8 @@
-<?
+@extends('property.master')
+
+@section('content')
 <form action="{{url('/imoveis/store')}}" method="post">
+    @csrf
     <span for="name">Name</span>
     <input type="text" name="name" id="name">
 
@@ -11,3 +14,5 @@
 
     <button type="submit">Enviar</button>
 </form>
+
+@endsection

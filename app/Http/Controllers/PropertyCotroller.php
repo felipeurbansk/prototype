@@ -4,6 +4,7 @@ namespace LaraDev\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use LaraDev\Imovel;
 
 class PropertyCotroller extends Controller
 {
@@ -18,7 +19,12 @@ class PropertyCotroller extends Controller
     }
 
     public function store(Request $request) {
-        DB::insert('insert into imovels (name, price) values (?, ?, ?)', [$request->input('name'), $request->input('price')]);
+        $imovel = new Imovel;
+
+        $imovel->name = $request->input('name');
+        $imovel->price = $request->input('price');
+
+        $imovel->save();
 
         return redirect()->action('PropertyCotroller@index');
     }

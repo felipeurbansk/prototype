@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/imoveis', 'PropertyCotroller@index');
-Route::get('/imoveis/novo', 'PropertyCotroller@create');
-Route::get('/imoveis/store', 'PropertyCotroller@store');
+Route::get('/', 'PropertyCotroller@index');
+Route::get('/imoveis/create', 'PropertyCotroller@create');
+Route::post('/imoveis/store', 'PropertyCotroller@store');
+Route::put('/imoveis/update/{id}', 'PropertyCotroller@update');
+Route::put('/imoveis/destroy/{id}', 'PropertyCotroller@destroy');
