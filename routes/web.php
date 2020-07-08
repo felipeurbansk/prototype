@@ -17,6 +17,6 @@ Route::get('/', function () {
 
 Route::get('/', 'PropertyCotroller@index');
 Route::get('/imoveis/create', 'PropertyCotroller@create');
+Route::get('/imoveis/edit', 'PropertyCotroller@edit');
 Route::post('/imoveis/store', 'PropertyCotroller@store');
-Route::put('/imoveis/update/{id}', 'PropertyCotroller@update');
 Route::put('/imoveis/destroy/{id}', 'PropertyCotroller@destroy');

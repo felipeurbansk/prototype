@@ -9,13 +9,23 @@ use LaraDev\Imovel;
 class PropertyCotroller extends Controller
 {
     public function index() {
-        $properties = DB::select('select * from imovels');
+        $imoveis= Imovel::all();
 
-        return view('property.index', compact('properties'));
+        return view('property.index', compact('imoveis'));
     }
 
     public function create() {
         return view('property.create');
+    }
+
+    public function show(Request $request, $id){
+        $imovel = Imovel::find($id);
+    }
+
+    public function edit(Request $request, $id){
+        $imovel = Imovel::find($id);
+
+        return view('property.create', compact($imovel));
     }
 
     public function store(Request $request) {
@@ -27,5 +37,20 @@ class PropertyCotroller extends Controller
         $imovel->save();
 
         return redirect()->action('PropertyCotroller@index');
+    }
+
+    public function update(Request $request, $id) {
+
+        $imovel = Imovel::find($id);
+
+        $imovel->name = $request->input('name');
+        $imovel->price = $request->input('price');
+
+        $imovel->save();
+
+    }
+
+    public function destroy($id) {
+        Imovel::find($id)->delete();
     }
 }

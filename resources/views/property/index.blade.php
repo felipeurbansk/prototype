@@ -7,13 +7,21 @@
             <tr>
                 <th>Nome</th>
                 <th>Price</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($properties as $property)
+            @foreach($imoveis as $imovel)
             <tr>
-                <td>{{$property->name}}</td>
-                <td>{{$property->price}}</td>
+                <td>{{$imovel->name}}</td>
+                <td>{{$imovel->price}}</td>
+                <td>
+                    <p>
+                        <a href="<?= url('/imoveis/edit/'.$imovel->id) ?>">Editar</a>
+                        |
+                        <a href="<?= url('/imoveis/destroy/'.$imovel->id) ?>">Excluir</a>
+                    </p>
+                </td>
             </tr>
             @endforeach
         </tbody>
